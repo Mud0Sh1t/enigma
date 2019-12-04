@@ -1,0 +1,20 @@
+framework:
+    workflows:
+        cart:
+            type: 'state_machine'
+            marking_store:
+                type: 'single_state'
+            supports:
+                - App\Entity\Cart
+            initial_marking: Préparation
+            places:
+                - Préparation
+                - Prêt
+                - Emporté
+            transitions:
+                ready:
+                    from: Préparation
+                    to: Prêt
+                done:
+                    from: Prêt
+                    to: Emporté

@@ -1,0 +1,9 @@
+App\Entity\OrderStatus:
+  prepa:
+    status: Preparation
+
+  ready:
+    status: Prêt
+
+  done:
+    status: Emporté

@@ -2,4 +2,35 @@
 
 {% block title %}Update Status Order Cart{% endblock %}
 
-{% block body %} {% endblock %}
+{% block body %}
+    <table  class="table">
+        <thead>
+            <tr>
+                <th scope="col">Order {{ cart.id }}#</th>
+                <th scope="col">{{ cart.total/100 }}€</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <table class="table">
+                    <tr>
+                        <td>Category</td>
+                        <td>Products</td>
+                    </tr>
+                    {% for selection in cart.selections %}
+                        <tr>
+                            <th scope="row">
+                                <span class="badge badge-primary">{{ selection.product.category.name }}</span>
+                            </th>
+                            <td>
+                                {{ selection.product.name }} x{{ selection.quantity }}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </tr>
+        </tbody>
+    </table>
+    {{ form_start(form) }}
+    {{ form_end(form) }}
+{% endblock %}

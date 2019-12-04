@@ -22,6 +22,6 @@ class ProductResponsibilityVoter extends Voter
      */
     protected function voteOnAttribute($attribute, $subject, TokenInterface $token): bool
     {
-        return $subject->getCategory()->getName() === 'Drinks' && stripos($token->getUsername(), 'g') === 0;
+        return $subject->getCategory()->getName() === 'Drinks' && stripos($token->getUsername(), 'm') === 0;
     }
 }

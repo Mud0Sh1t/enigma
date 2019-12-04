@@ -29,3 +29,7 @@ services:
     App\EventSubscribers\DoctrineProductEventsSubscriber:
         tags:
             - { name: doctrine.event_subscriber, connection: default }
+
+    App\EventSubscribers\DoctrineOrderStatusCartEventsSubscriber:
+        tags:
+            - { name: doctrine.event_subscriber, connection: default }

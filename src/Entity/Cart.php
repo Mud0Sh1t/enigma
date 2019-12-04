@@ -40,9 +40,25 @@ class Cart
      */
     private $orderStatus;
 
+    private $marking;
+
+
+	/**
+	 * @var \DateTime
+	 * @ORM\Column(type="datetime")
+	 */
+    private $createdAt;
+
+	/**
+	 * @var \DateTime
+	 * @ORM\Column(type="datetime")
+	 */
+    private $updatedAt;
+
     public function __construct()
     {
         $this->selections = new ArrayCollection();
+        $this->createdAt = new \DateTime('now');
     }
 
     /**
@@ -114,4 +130,50 @@ class Cart
 
         return $this;
     }
+
+	/**
+	 *
+	 * @return string
+	 */
+	public function getMarking()
+	{
+		return $this->orderStatus->getStatus();
+	}
+
+	public function setMarking($status)
+	{
+		$this->marking = $status;
+	}
+
+	/**
+	 * @return \DateTime
+	 */
+	public function getCreatedAt(): \DateTime
+	{
+		return $this->createdAt;
+	}
+
+	/**
+	 * @param \DateTime $createdAt
+	 */
+	public function setCreatedAt(\DateTime $createdAt): void
+	{
+		$this->createdAt = $createdAt;
+	}
+
+	/**
+	 * @return \DateTime
+	 */
+	public function getUpdatedAt(): \DateTime
+	{
+		return $this->updatedAt;
+	}
+
+	/**
+	 * @param \DateTime $updatedAt
+	 */
+	public function setUpdatedAt(\DateTime $updatedAt): void
+	{
+		$this->updatedAt = $updatedAt;
+	}
 }

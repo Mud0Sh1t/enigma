@@ -33,7 +33,12 @@ class OrderStatus
         $this->carts = new ArrayCollection();
     }
 
-    public function getId(): ?int
+    public function __toString()
+	{
+		return $this->status;
+	}
+
+	public function getId(): ?int
     {
         return $this->id;
     }
